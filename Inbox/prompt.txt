@@ -1,0 +1,98 @@
+create a modern and responsive homepage using Next.js for my e-commerce website, along with header, footer, and every navigation component mentioned in header (Home, searchbar, cart, checkout, account, customer service eg. faq and contact details , about us , privacy policy) , dynamic routing,  react icons, and shadcn components: (front-end only)
+
+theme i decided.. follow it strictly..:
+
+General Design Aesthetic
+Overall Feel: Modern, minimal, and clean.
+Color Palette: Soft, neutral tones with accent colors to highlight key elements (e.g., buttons, links, call-to-action areas).
+Typography: Elegant, professional fonts that complement a clean design.
+Spacing & Layout: Adequate whitespace to allow content to breathe, with well-organized sections.
+
+Color Palette
+A good color palette can make a big difference in the feel of your website. Let’s choose a palette that’s modern and professional but still warm and welcoming.
+
+Primary Colors:
+Dark Navy Blue (#1A2A39): Strong, professional, and easy on the eyes.
+Light Grey (#F5F5F5): For backgrounds and subtle elements.
+White (#FFFFFF): Clean, neutral, and makes content pop.
+Accent Colors:
+Soft Coral (#FF6F61): For buttons, highlights, and active elements (e.g., links).
+Mint Green (#61FF61): For secondary highlights or call-to-action buttons.
+Text Colors:
+Main Text Color (#333333): For readability.
+Secondary Text Color (#757575): For less prominent information.
+
+Typography
+Choosing modern and legible fonts is crucial for a professional look.
+
+Primary Font (Heading)
+Font: "Poppins" (Google Font)
+
+Weight: Semi-Bold (600)
+
+Usage: Headlines, main titles, sections.
+
+Secondary Font (Body):
+Font: "Lora" (Google Font)
+
+Weight: Regular (400) or Light (300) for a clean look.
+
+Usage: Body text, paragraphs, descriptions.
+
+Font Size Guidelines:
+Main Titles: 36px
+Subheadings: 24px
+Body Text: 16px
+Navigation Links: 18px (adjustable)
+
+Button Styles
+Buttons are crucial for user interaction, so they should stand out without being too bold.
+
+Default Button:
+Background: Soft Coral (#FF6F61)
+Text: White (#FFFFFF)
+Border: None
+Padding: 12px 24px
+Border-radius: 5px
+Hover Effect:
+Background: Mint Green (#61FF61)
+Text: White (#FFFFFF)
+Transition: 0.3s ease-in-out
+
+Navigation Bar (Navbar)
+A fixed, minimal navigation bar with hover effects would keep the website clean but interactive.
+
+Background: Dark Navy Blue (#1A2A39)
+Text Color: White (#FFFFFF)
+Hover Effect: Soft Coral (#FF6F61) for active links.
+Height: 60px
+Padding: 15px 30px
+
+ Hover Effects & Transitions
+Hover effects should be subtle and smooth to keep the website modern and professional.
+
+Link Hover Effect:
+Default Text Color: Dark Navy Blue (#1A2A39)
+Hover Text Color: Soft Coral (#FF6F61)
+Transition: 0.3s ease-out
+
+Card Hover Effect (Product Cards):
+Default: Slight shadow and simple transition.
+Hover: Shadow depth increases, and the card tilts slightly.
+
+Animations
+You can use some subtle animations to make your website feel dynamic without being too overwhelming.
+
+Smooth Fade In (for sections):
+Effect: Sections fade in when they come into view.
+Duration: 0.5s ease-in.
+
+Sliding Animations (for Product Lists):
+Effect: Product items slide into view from the left or right.
+css
+Copy code
+
+ Footer Design
+Background: Dark Navy Blue (#1A2A39)
+Text Color: White (#FFFFFF)
+Links: Soft Coral (#FF6F61) with hover effect
