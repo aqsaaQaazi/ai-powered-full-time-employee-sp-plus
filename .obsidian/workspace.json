@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SKILL.md",
+                "file": "Needs_Action/EMAIL_19723ad0460a23dd.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SKILL"
+              "title": "EMAIL_19723ad0460a23dd"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "43043239cf21e813",
@@ -185,17 +185,36 @@
   },
   "active": "5ea5765bb1571aa5",
   "lastOpenFiles": [
+    "Needs_Action/prompt.md",
+    "Needs_Action/EMAIL_19723ad0460a23dd.md",
+    "Dashboard.md",
+    "token.json",
+    "token_old.json",
+    "quickstart_test.py",
+    "credentials.json",
+    "client_secret_698350421714-kh6cn60b0rm2j3pebbpscdnaqu7tb07t.apps.googleusercontent.com.json",
+    "quickstart.py",
+    "Untitled",
+    "credentials.json.json",
+    "client_secret_698350421714-mj2gvr5sv5vocn1d1cff7q5m6qi7m2gp.apps.googleusercontent.com.json",
+    "gmail_watcher.log",
+    "history/prompts/gmail-watcher/4-gmail-watcher-implementation.red.prompt.md",
+    "history/prompts/gmail-watcher/3-gmail-watcher-tasks.tasks.prompt.md",
+    "specs/001-gmail-watcher/tasks.md",
+    "history/prompts/gmail-watcher/2-gmail-watcher-plan.plan.prompt.md",
+    "specs/001-gmail-watcher/impl/agent-context-update.md",
+    "specs/001-gmail-watcher/impl/quickstart.md",
+    "specs/001-gmail-watcher/impl/data-model.md",
+    "specs/001-gmail-watcher/impl/research.md",
+    "specs/001-gmail-watcher/impl/plan.md",
+    "history/prompts/gmail-watcher/1-gmail-watcher-spec.spec.prompt.md",
+    "specs/001-gmail-watcher/checklists/requirements.md",
+    "specs/001-gmail-watcher/spec.md",
+    "SKILL.md",
     "history/prompts/constitution/1-update-constitution-for-ai-employee.constitution.prompt.md",
-    "history/prompts/constitution",
     "history/prompts/general/1-generate-tasks-for-ai-vault.tasks.prompt.md",
-    "history/prompts/general",
-    "history/prompts",
-    "history",
     "tasks.md",
     "BRONZE_COMPLETION.md",
-    "Needs_Action/prompt.md",
-    "Needs_Action/prompt.txt",
-    "Inbox/prompt.txt",
     "SKILL_CreateDashboard.md",
     "Welcome.md"
   ]

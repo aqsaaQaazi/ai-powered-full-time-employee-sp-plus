@@ -1,0 +1,49 @@
+# Credentials and tokens
+credentials.json
+token.json
+data/.processed_emails.json
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs
+*.log
+gmail_watcher.log
+
+# Obsidian
+.obsidian/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
