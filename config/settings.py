@@ -19,7 +19,19 @@ KEYWORDS = [
     'payment',
     'asap',
     'quote',
-    'help'
+    'help', 
+    "Invoice",
+    "Urgent",
+    "Payment",
+    "ASAP",
+    "Quote",
+    "Help",
+    "INVOICE",
+    "URGENT",
+    "PAYMENT",
+    "ASAP",
+    "QUOTE",
+    "HELP",
 ]
 
 # API Scopes

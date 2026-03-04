@@ -12,9 +12,9 @@ import sys
 import time
 import logging
 import signal
-import json
+# import json
 from typing import List, Dict, Any, Optional
-from datetime import datetime, timedelta
+# from datetime import datetime, timedelta
 
 from googleapiclient.errors import HttpError
 
@@ -29,8 +29,8 @@ from utils.file_handler import (
     create_actionable_item,
     is_email_processed,
     mark_email_as_processed,
-    load_processed_emails,
-    save_processed_emails
+    # load_processed_emails,
+    # save_processed_emails
 )
 from config.settings import (
     DEFAULT_POLL_INTERVAL,
@@ -107,7 +107,7 @@ class GmailWatcher:
             # Build search query for important, unread emails
             # We'll look for emails with our target keywords
             keyword_query = ' OR '.join(KEYWORDS)
-            query = f'is:unread is:important ({keyword_query})'
+            query = f'is:unread  ({keyword_query})'
 
             # Fetch messages
             results = self.service.users().messages().list(
@@ -217,31 +217,66 @@ class GmailWatcher:
 
     def run_once(self):
         """
-        Run a single iteration of email monitoring
+        Run a single iteration of email monitoring with retry on transient failures
         """
-        try:
-            # Fetch new emails
-            emails = self._fetch_new_emails()
+        max_retries = 3
+        base_delay = 5  # seconds
 
-            # Process each email
-            processed_count = 0
-            for email in emails:
-                if not self.running:
-                    break
+        for attempt in range(max_retries + 1):
+            try:
+                # Fetch new emails
+                emails = self._fetch_new_emails()
 
-                processed_data = self._process_email(email)
+                # Process each email
+                processed_count = 0
+                for email in emails:
+                    if not self.running:
+                        break
 
-                if processed_data:
-                    self._create_actionable_item(processed_data)
-                    processed_count += 1
+                    processed_data = self._process_email(email)
 
-            if processed_count > 0:
-                self.logger.info(f"Processed {processed_count} new emails")
-            else:
-                self.logger.debug("No new emails to process")
+                    if processed_data:
+                        self._create_actionable_item(processed_data)
+                        processed_count += 1
 
-        except Exception as e:
-            self.logger.error(f"Error during email processing: {e}")
+                if processed_count > 0:
+                    self.logger.info(f"Processed {processed_count} new emails")
+                else:
+                    self.logger.debug("No new emails to process this cycle")
+
+                return  # Success → exit retry loop
+
+            except HttpError as e:
+                status = e.resp.status if hasattr(e, 'resp') else None
+                if status in (429, 500, 503):  # rate limit, server error
+                    delay = base_delay * (2 ** attempt)
+                    self.logger.warning(f"API transient error {status} (attempt {attempt+1}/{max_retries}), retry in {delay}s")
+                    if attempt < max_retries:
+                        time.sleep(delay)
+                        continue
+                self.logger.error(f"Non-retryable API error: {e}")
+                break
+
+            except Exception as e:
+                error_str = str(e)
+                if "10054" in error_str or "ConnectionResetError" in error_str or "forcibly closed" in error_str:
+                    delay = base_delay * (2 ** attempt)
+                    self.logger.warning(f"Network reset detected (attempt {attempt+1}/{max_retries}), retry in {delay}s")
+                    if attempt < max_retries:
+                        time.sleep(delay)
+                        # Optional: force credential refresh on network issues
+                        try:
+                            if self.service and hasattr(self.service._http, 'request') and self.service._http.request.credentials:
+                                self.service._http.request.credentials.refresh()
+                                self.logger.info("Refreshed credentials after network reset")
+                        except:
+                            self.logger.error("Error refreshing credentials after network reset")
+                        continue
+                self.logger.error(f"Unexpected non-retryable error in run_once: {error_str}")
+                break
+
+        else:
+            self.logger.error(f"Max retries ({max_retries}) reached in run_once - skipping this cycle")
 
     def run(self):
         """

@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c2f5fd1397a9ea81",
+        "id": "5f378679495cf4f9",
         "type": "tabs",
         "children": [
           {
-            "id": "5ea5765bb1571aa5",
+            "id": "c7c23e29ed30d61f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Needs_Action/EMAIL_19723ad0460a23dd.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "EMAIL_19723ad0460a23dd"
+              "title": "New tab"
             }
           }
         ]
@@ -183,10 +179,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "5ea5765bb1571aa5",
+  "active": "c7c23e29ed30d61f",
   "lastOpenFiles": [
-    "Needs_Action/prompt.md",
     "Needs_Action/EMAIL_19723ad0460a23dd.md",
+    "Needs_Action/EMAIL_19cb532497e3756a.md",
+    "Needs_Action/EMAIL_19cb547230150e16.md",
+    "Needs_Action/EMAIL_19cb5570ad937ffc.md",
+    "Needs_Action/EMAIL_19cb4807af637bc5.md",
+    "Needs_Action/EMAIL_19cafd5cf0e6915a.md",
+    "Needs_Action/EMAIL_19cb537bff5cc553.md",
+    "Needs_Action/EMAIL_19ca06544360baea.md",
+    "tasks.md",
+    "Needs_Action/prompt.md",
     "Dashboard.md",
     "token.json",
     "token_old.json",
@@ -212,10 +216,6 @@
     "specs/001-gmail-watcher/spec.md",
     "SKILL.md",
     "history/prompts/constitution/1-update-constitution-for-ai-employee.constitution.prompt.md",
-    "history/prompts/general/1-generate-tasks-for-ai-vault.tasks.prompt.md",
-    "tasks.md",
-    "BRONZE_COMPLETION.md",
-    "SKILL_CreateDashboard.md",
-    "Welcome.md"
+    "history/prompts/general/1-generate-tasks-for-ai-vault.tasks.prompt.md"
   ]
 }
