@@ -1,49 +1,44 @@
 """
-Configuration settings for Gmail Watcher
+Configuration settings for Approval Workflow
 """
 
 import os
 from pathlib import Path
 
-# Default configuration values
-DEFAULT_POLL_INTERVAL = int(os.getenv('POLL_INTERVAL', '120'))  # seconds
-CREDENTIALS_PATH = os.getenv('CREDENTIALS_PATH', './credentials.json')
-TOKEN_PATH = os.getenv('TOKEN_PATH', './token.json')
-ACTION_DIR = os.getenv('ACTION_DIR', './Needs_Action/')
-PROCESSED_EMAILS_PATH = os.getenv('PROCESSED_EMAILS_PATH', './data/.processed_emails.json')
+# Directory paths
+PENDING_APPROVAL_DIR = Path(os.getenv('PENDING_APPROVAL_DIR', './Pending_Approval'))
+APPROVED_DIR = Path(os.getenv('APPROVED_DIR', './Approved'))
+REJECTED_DIR = Path(os.getenv('REJECTED_DIR', './Rejected'))
+LOGS_DIR = Path(os.getenv('LOGS_DIR', './Logs'))
 
-# Keywords to watch for in emails
-KEYWORDS = [
-    'invoice',
-    'urgent',
-    'payment',
-    'asap',
-    'quote',
-    'help', 
-    "Invoice",
-    "Urgent",
-    "Payment",
-    "ASAP",
-    "Quote",
-    "Help",
-    "INVOICE",
-    "URGENT",
-    "PAYMENT",
-    "ASAP",
-    "QUOTE",
-    "HELP",
+# Create directories if they don't exist
+PENDING_APPROVAL_DIR.mkdir(exist_ok=True)
+APPROVED_DIR.mkdir(exist_ok=True)
+REJECTED_DIR.mkdir(exist_ok=True)
+LOGS_DIR.mkdir(exist_ok=True)
+
+# Approval expiration settings
+APPROVAL_EXPIRATION_HOURS = int(os.getenv('APPROVAL_EXPIRATION_HOURS', 24))
+
+# Watchdog settings
+WATCHDOG_TIMEOUT = float(os.getenv('WATCHDOG_TIMEOUT', '1.0'))
+
+# Supported action types
+SUPPORTED_ACTION_TYPES = [
+    'email_send',
+    'linkedin_post',
+    'payment_draft',
+    'social_media_post',
+    'file_share',
+    'api_call'
 ]
 
-# API Scopes
-SCOPES = [
-    'https://www.googleapis.com/auth/gmail.readonly',
-    'https://www.googleapis.com/auth/gmail.modify'
-]
-
-# Priority levels based on keyword matches
-HIGH_PRIORITY_KEYWORDS = ['urgent', 'asap', 'help']
-MEDIUM_PRIORITY_KEYWORDS = ['invoice', 'payment', 'quote']
-
-# Create action directory if it doesn't exist
-Path(ACTION_DIR).mkdir(exist_ok=True)
-Path('./data').mkdir(exist_ok=True)
+# Required details for each action type
+REQUIRED_DETAILS = {
+    'email_send': ['to', 'subject', 'body_preview'],
+    'linkedin_post': ['content_preview', 'audience'],
+    'payment_draft': ['amount', 'recipient', 'reason'],
+    'social_media_post': ['platform', 'content_preview'],
+    'file_share': ['recipient', 'file_path', 'permissions'],
+    'api_call': ['endpoint', 'method', 'payload_preview']
+}
